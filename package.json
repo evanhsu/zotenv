@@ -1,0 +1,23 @@
+{
+  "name": "zotenv",
+  "version": "1.0.0",
+  "description": "A type-safe env-loader with runtime validation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "example": "ts-node ./example/example.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "evanhsu@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "16.0.1",
+    "zod": "3.17.3"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.0",
+    "ts-node": "10.8.1",
+    "typescript": "4.7.4"
+  }
+}
