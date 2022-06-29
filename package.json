@@ -12,6 +12,10 @@
   },
   "author": "evanhsu@gmail.com",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanhsu/zotenv"
+  },
   "dependencies": {
     "dotenv": "16.0.1",
     "zod": "3.17.3"
