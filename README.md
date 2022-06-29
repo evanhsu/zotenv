@@ -4,13 +4,13 @@ A type-safe env-loader with runtime validation
 
 ## Installing
 
-    npm install zotenv
+    npm install @smirk/zotenv
 
 ## Usage
 
 ```typescript
 // postgresConfig.ts
-import { loadEnv } from 'zotenv';
+import { loadEnv } from '@smirk/zotenv';
 import { z } from 'zod';
 
 // Define the schema for your env vars using a Zod Schema

@@ -1,5 +1,5 @@
 {
-  "name": "zotenv",
+  "name": "@smirk/zotenv",
   "version": "1.0.0",
   "description": "A type-safe env-loader with runtime validation",
   "main": "dist/index.js",
