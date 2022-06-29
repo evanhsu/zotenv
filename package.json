@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "example": "ts-node ./example/example.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
   },
   "author": "evanhsu@gmail.com",
   "license": "MIT",
