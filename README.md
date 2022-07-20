@@ -31,18 +31,20 @@ export { postgresConfig, PostgresConfig };
 
 ```typescript
 // index.ts
-import { postgresConfig, PostgresConfig } from 'postgresConfig.ts';
+import { postgresConfig, PostgresConfig } from './postgresConfig';
 import { Client } from 'pg';
 
 async function connectToPostgres(config: PostgresConfig) {
   const postgresClient = new Client({
-    host: postgresConfig.PG_HOST,
-    port: postgresConfig.PG_PORT,
+    host: config.PG_HOST,
+    port: config.PG_PORT,
   });
 
   await postgresClient.connect();
   return postgresClient;
 }
+
+connectToPostgres(postgresConfig);
 ```
 
 ```env
