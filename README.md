@@ -1,17 +1,26 @@
 # zotenv
 
-A type-safe env-loader with runtime validation
+A type-safe env-loader with runtime validation built with [Zod](https://github.com/colinhacks/zod).
+
+Use this library to perform validation of your .env values on application startup. For projects with
+a large number of env vars, you can separate them into different runtime variables.
 
 ## Installing
 
     npm install @smirk/zotenv
 
+## Getting Started
+
+Explore the example for ideas on how to get started:
+
+    npm run example
+
 ## Usage
 
 ```typescript
 // postgresConfig.ts
-import { loadEnv } from '@smirk/zotenv';
-import { z } from 'zod';
+import { loadEnv } from "@smirk/zotenv";
+import { z } from "zod";
 
 // Define the schema for your env vars using a Zod Schema
 const postgresConfigSchema = z.object({
@@ -31,8 +40,8 @@ export { postgresConfig, PostgresConfig };
 
 ```typescript
 // index.ts
-import { postgresConfig, PostgresConfig } from './postgresConfig';
-import { Client } from 'pg';
+import { postgresConfig, PostgresConfig } from "./postgresConfig";
+import { Client } from "pg";
 
 async function connectToPostgres(config: PostgresConfig) {
   const postgresClient = new Client({

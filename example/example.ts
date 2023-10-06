@@ -9,7 +9,7 @@
  * of the usage features.
  */
 
-import { loadEnv } from '../src/index';
+import { loadEnv } from "../src/index";
 
 /**
  * It's recommended that you write the Schema definition for each Config
@@ -19,12 +19,12 @@ import { loadEnv } from '../src/index';
 import {
   PostgresConfig,
   postgresConfigSchema,
-} from './configSchemas/postgresConfigSchema';
+} from "./configSchemas/postgresConfigSchema";
 
 import {
   MailerConfig,
   mailerConfigSchema,
-} from './configSchemas/mailerConfigSchema';
+} from "./configSchemas/mailerConfigSchema";
 
 /**
  * Calling 'loadEnv()' will load and validate the values from your .env file
@@ -33,7 +33,7 @@ import {
  * object, even though they're defined in the same .env file.
  */
 const mailerConfig = loadEnv(mailerConfigSchema, {
-  path: './example/.env',
+  path: "./example/.env",
   debug: true,
 });
 console.log(
@@ -41,8 +41,13 @@ console.log(
 );
 console.dir(mailerConfig);
 
+/**
+ * We're calling 'loadEnv()' a 2nd time here, but passing a different Zod schema.
+ * Only the values included in the provided Zod schema will be extracted and validated
+ * from the .env file, which in this case are the Postgres-related config values.
+ */
 const postgresConfig = loadEnv(postgresConfigSchema, {
-  path: './example/.env',
+  path: "./example/.env",
 });
 console.log(
   'These values were loaded into the "postgresConfig" from your .env file and validated using the postgresConfigSchema:'
@@ -50,15 +55,18 @@ console.log(
 console.dir(postgresConfig);
 
 /**
- * This function demonstrates how the PostgresConfig type can be used to
+ * This function demonstrates how the PostgresConfig type can be used to typehint specific config values
+ * throughout your codebase.
+ *
+ * Try changing the the `PG_HOST` value to be something invalid in the .env file.
  */
 function demonstrateStrongTypes(
   pgConfig: PostgresConfig,
-  mailApiKey: MailerConfig['MAIL_API_KEY']
+  mailApiKey: MailerConfig["MAIL_API_KEY"]
 ) {
   console.log(
     `\nNotice the strong typing on the config objects:\n`,
-    `My PG_HOST is ${pgConfig.PG_HOST}, and the MAIL_API_KEY is ${mailApiKey}\n`
+    `My MAIL_API_KEY is ${mailApiKey} and the PG_PORT (currently ${pgConfig.PG_PORT}) should never be greater than 65535`
   );
 }
 
